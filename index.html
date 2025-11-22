@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A message for our Mentor 💌</title>
+  <title>Messages for anh Khang 💌</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/seal.png" />
 
-  <!-- HARD OVERRIDES: make page scrollable + mobile-fit letters -->
+  <!-- HARD OVERRIDES: make page scrollable + responsive letters -->
   <style>
     /* ===== Unblock scrolling from old CSS ===== */
     html, body, main, .app { height: auto !important; }
@@ -34,7 +34,7 @@
     /* ===== Balloons (non-interactive, behind) ===== */
     #balloon-layer { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
     .balloon {
-      position: absolute; width: 36px; height: 44px;   /* a bit smaller for phones */
+      position: absolute; width: 36px; height: 44px;
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
       bottom: -100px; opacity: .8; animation: rise linear infinite;
     }
@@ -55,7 +55,6 @@
       transition: transform .18s ease;
     }
     .corner-photos img:hover { transform: scale(1.08) rotate(-2deg); }
-    /* push a bit outward so letters won't cover */
     .corner.tl { top: 7%;  left: 4%; }
     .corner.tr { top: 7%;  right: 4%; }
     .corner.bl { bottom: 7%; left: 4%; }
@@ -65,24 +64,32 @@
     }
 
     /* ===== Letters grid: MOBILE FIRST ===== */
-    .letters-wrapper { width: 100%; max-width: 960px; margin: 0 auto; }
+    .letters-wrapper { width: 100%; max-width: 900px; margin: 0 auto; }
     .letters-grid{
       display: grid;
-      grid-template-columns: 1fr;             /* 1 column on phones */
-      gap: 12px;                               /* tight gap for phones */
-      max-width: 520px;                        /* keep it compact */
+      grid-template-columns: 1fr;     /* 1 column on phones */
+      gap: 12px;
+      max-width: 480px;               /* narrow cards on phone */
       margin: 0 auto;
     }
-    /* bump to 2 columns on wider screens */
+    /* 2 columns tablet */
     @media (min-width: 540px){
       .letters-grid{
-        grid-template-columns: repeat(2, minmax(180px, 1fr));
-        max-width: 720px;
+        grid-template-columns: repeat(2, minmax(170px, 1fr));
+        max-width: 640px;
         gap: 14px;
       }
     }
+    /* 3 columns desktop */
+    @media (min-width: 900px){
+      .letters-grid{
+        grid-template-columns: repeat(3, minmax(190px, 1fr));
+        max-width: 900px;
+        gap: 16px;
+      }
+    }
 
-    /* ===== Letter card: warm theme touch ===== */
+    /* ===== Letter card ===== */
     .letter-card-xl{
       background: rgba(255, 248, 230, .7);
       border: 2px solid rgba(255, 248, 230, 1);
@@ -96,7 +103,7 @@
     .letter-card-xl:hover{ transform: translateY(-2px); }
 
     .env-large{
-      width: 92%; max-width: 280px; aspect-ratio: 16/11;
+      width: 92%; max-width: 250px; aspect-ratio: 16/11;
       background: #FFF3D6; border-radius: 16px; position: relative;
       display: grid; place-items: center; overflow: hidden;
     }
@@ -117,19 +124,19 @@
   <!-- balloons behind everything -->
   <div id="balloon-layer" aria-hidden="true"></div>
 
-  <!-- photos: đổi thành ảnh mentor/team/HN nha -->
+  <!-- photos (renamed) -->
   <div class="corner-photos" aria-hidden="true">
-    <img src="images/mentor-1.png" alt="Mentor photo 1" class="corner tl" />
-    <img src="images/mentor-2.png" alt="Mentor photo 2" class="corner tr" />
-    <img src="images/mentor-3.png" alt="Team photo 1" class="corner bl" />
-    <img src="images/mentor-4.png" alt="Team photo 2" class="corner br" />
+    <img src="images/max1.png" alt="Mentor photo 1" class="corner tl" />
+    <img src="images/max2.png" alt="Mentor photo 2" class="corner tr" />
+    <img src="images/max3.png" alt="Team photo 1" class="corner bl" />
+    <img src="images/max4.png" alt="Team photo 2" class="corner br" />
   </div>
 
   <main class="app">
     <!-- STEP 1 -->
     <section class="step step-1 active" id="step-1">
       <div class="intro-card">
-        <p class="intro-title">A special message for our Mentor in Hà Nội</p>
+        <p class="intro-title">Messages for anh Khang</p>
         <button class="btn-primary" id="btn-open">Unfold</button>
       </div>
     </section>
@@ -137,19 +144,18 @@
     <!-- STEP 2 -->
     <section class="step step-2" id="step-2">
       <div class="letters-wrapper" style="text-align:center;margin:0 auto;">
-        <h1 class="headline">Welcome to Hà Nội, anh [MENTOR_NAME]! ✨</h1>
-        <p class="subtext">Tụi em có vài lá thư nhỏ gửi anh trước khi mình gặp nhau nè. Click để đọc nha 💛</p>
+        <h1 class="headline">Welcome to Hà Nội, anh Khang! ✨</h1>
+        <p class="subtext">Hellu anh Khang, bọn em có mấy lời gửi anh nè ^^</p>
 
         <div class="letters-grid" id="letters-grid">
           <!-- Letter 1: Ly -->
           <article class="letter-card-xl"
             data-from="from Ly"
-            data-message="Dear anh [MENTOR_NAME],
-Hà Nội chào anh bằng chút nắng vàng và sự háo hức của tụi em hehe.
-Cảm ơn anh vì luôn support team siêu nhiệt tình. Tụi em học được nhiều thứ từ anh lắm, từ tư duy tới cách làm việc.
-Chúc chuyến ra HN này của anh thật vui, nhiều kỉ niệm đẹp, ăn ngon ngủ ngon, và gặp team mình thật đã nhaaa.
-See you soon!!
-Ly">
+            data-message="Hellu anh Khang, welcome to HN nhé anh!!&#10;
+Em biết anh đến HN mấy lần trước rồi nma chưa có bọn em^^ Chúc anh 1 holiday thật thoải mái, tịnh tâm, care-free, tận hưởng những phút giây của hiện tại nhé ak. Em cũng k biết lúc anh đọc cái này anh có đang ngồi cùng bọn em ko=))) anw, anh là một người mentor rất đặc biệt với em, đặc biệt in a good way nhá, em kbiet diễn tả sao nữa nma chắc tại anh gen Z, với anh khùng khùng sao ý :)&#10;
+&#10;
+Cảm ơn anh vì luôn support team siêu nhiệt tình. Em học được nhiều thứ từ anh^^ từ mindset tới cách làm việc. Chúc chuyến ra HN này của anh thật vui, nhiều kỉ niệm đẹp, ăn ngon ngủ kĩ nhen. Ngoài ra, em muốn nhắc anh rằng, anh vẫn còn trẻ, hãy follow những gì anh cảm nhận, và tin tưởng vào bản thân mình. You got this, I believe in u!! Bao giờ cảm thấy mất niềm tin thì mở thư ra đọc nhé anh, em ko xoá GitHub đi đâu=)))&#10;
+Kylie">
             <div class="env-large">
               <div class="env-text">
                 <div class="from">LETTER FROM</div>
@@ -161,12 +167,7 @@ Ly">
           <!-- Letter 2: Linh -->
           <article class="letter-card-xl"
             data-from="from Linh"
-            data-message="Dear anh [MENTOR_NAME],
-Finallyyyyy anh ra HN!! Team tụi em chờ ngày này lâu rồi đó.
-Cảm ơn anh vì những lần share kiến thức và góp ý rất tâm huyết. Nhờ anh mà tụi em tự tin hơn hẳn.
-Chúc anh có chuyến đi chill, thời tiết đẹp, và mình sẽ có một buổi meeting/đi chơi thật đáng nhớ.
-Hẹn gặp anh sớm nha!
-Linh">
+            data-message="nhân ngày 20/11, em chúc người anh mentor iu quý của e lun mạnh khoẻ, thành công và hạnh phúc ạaa. Dạo gần đây em gái thấy anh zai xì chét công việc wa nhưng mà cuộc sống mò. Áp lực tạo nên kim cương em tin anh zai em làm được cố lên anh Khanggg🥳">
             <div class="env-large">
               <div class="env-text">
                 <div class="from">LETTER FROM</div>
@@ -178,12 +179,13 @@ Linh">
           <!-- Letter 3: My -->
           <article class="letter-card-xl"
             data-from="from My"
-            data-message="Dear anh [MENTOR_NAME],
-Em viết vài dòng nhỏ để nói là tụi em rất quý anh và trân trọng những gì anh đã làm cho team.
-Chuyến HN này mong anh sẽ được nạp đầy năng lượng, thấy Hà Nội thật dễ thương, và có nhiều moment vui cùng tụi em.
-Cảm ơn anh vì always being a great mentor.
-Safe trip and see you soon!
-My">
+            data-message="Gửi a Khang.&#10;
+Phải nói mình cũng có duyên được anh mentor qua Peaking Point vừa rồi em cảm thấy được inspire bởi năng lượng tích cực, hướng thiện của anh hehe, luôn view mọi thứ từ vấn đề bản thân để giải quyết của anh. Em cũng rất ngưỡng mộ khi anh ngày càng giúp được nhiều bạn giống tụi em lạc hướng trong đi thi hay công việc. Em thấy anh làm gì cũng xuất phát từ tâm hết luôn.&#10;
+&#10;
+Nhắc đến tâm, Hà Nội khá nhiều đền và chùa cổ hay ho a có thể khám phá thử như 4 tứ trấn nè. Chúc a enjoy hn trip nhaa 🤩😍&#10;
+&#10;
+Kí tên&#10;
+Giáng My">
             <div class="env-large">
               <div class="env-text">
                 <div class="from">LETTER FROM</div>
@@ -200,7 +202,7 @@ My">
       <div class="letter-popup">
         <button class="modal-close" id="modal-close" aria-label="close">&times;</button>
         <p class="modal-from" id="modal-from"></p>
-        <h2 class="modal-title">A letter for anh [MENTOR_NAME]</h2>
+        <h2 class="modal-title">A letter for anh Khang</h2>
         <p class="modal-text" id="modal-text"></p>
       </div>
     </div>
@@ -208,7 +210,6 @@ My">
     <footer class="footer">from Ly, Linh & My 💛</footer>
   </main>
 
-  <!-- move all JS to script.js -->
   <script src="script.js" defer></script>
 </body>
 </html>
