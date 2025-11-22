@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A message for Thanh Lam 💌</title>
+  <title>A message for our Mentor 💌</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/seal.png" />
 
@@ -82,13 +82,13 @@
       }
     }
 
-    /* ===== Letter card: smaller profile ===== */
+    /* ===== Letter card: warm theme touch ===== */
     .letter-card-xl{
-      background: rgba(255,246,237,.55);
-      border: 2px solid rgba(255,246,237,1);
-      border-radius: 20px;                     /* smaller radius reads cleaner on phone */
+      background: rgba(255, 248, 230, .7);
+      border: 2px solid rgba(255, 248, 230, 1);
+      border-radius: 20px;
       padding: 1rem .9rem .9rem;
-      height: 165px;                           /* SHRUNK to fit mobile */
+      height: 165px;
       display: grid; place-items: center;
       cursor: pointer; overflow: hidden;
       transition: transform .14s ease;
@@ -97,14 +97,14 @@
 
     .env-large{
       width: 92%; max-width: 280px; aspect-ratio: 16/11;
-      background: #fff7ee; border-radius: 16px; position: relative;
+      background: #FFF3D6; border-radius: 16px; position: relative;
       display: grid; place-items: center; overflow: hidden;
     }
     .env-large::before{
       content:""; position:absolute; inset:0 0 auto 0; height:56%;
-      background:#f2e6d1; clip-path: polygon(0 0, 100% 0, 50% 72%);
+      background:#F5D9A6; clip-path: polygon(0 0, 100% 0, 50% 72%);
     }
-    .env-text{ position:relative; z-index:2; text-align:center; color:#742c22; }
+    .env-text{ position:relative; z-index:2; text-align:center; color:#6b3b17; }
     .env-text .from{ font-size:.8rem; letter-spacing:.07em; opacity:.85; margin-bottom:.1rem; }
     .env-text .name{ font-weight:800; font-size:1.15rem; line-height:1.05; }
 
@@ -112,23 +112,24 @@
     .modal-text { max-height: 65vh; overflow: auto; }
   </style>
 </head>
+
 <body>
   <!-- balloons behind everything -->
   <div id="balloon-layer" aria-hidden="true"></div>
 
-  <!-- photos -->
+  <!-- photos: đổi thành ảnh mentor/team/HN nha -->
   <div class="corner-photos" aria-hidden="true">
-    <img src="images/lam-1.png" alt="Lam photo 1" class="corner tl" />
-    <img src="images/lam-2.png" alt="Lam photo 2" class="corner tr" />
-    <img src="images/lam-3.png" alt="Lam photo 3" class="corner bl" />
-    <img src="images/lam-4.png" alt="Lam photo 4" class="corner br" />
+    <img src="images/mentor-1.png" alt="Mentor photo 1" class="corner tl" />
+    <img src="images/mentor-2.png" alt="Mentor photo 2" class="corner tr" />
+    <img src="images/mentor-3.png" alt="Team photo 1" class="corner bl" />
+    <img src="images/mentor-4.png" alt="Team photo 2" class="corner br" />
   </div>
 
   <main class="app">
     <!-- STEP 1 -->
     <section class="step step-1 active" id="step-1">
       <div class="intro-card">
-        <p class="intro-title">A special message for Thanh Lam</p>
+        <p class="intro-title">A special message for our Mentor in Hà Nội</p>
         <button class="btn-primary" id="btn-open">Unfold</button>
       </div>
     </section>
@@ -136,28 +137,59 @@
     <!-- STEP 2 -->
     <section class="step step-2" id="step-2">
       <div class="letters-wrapper" style="text-align:center;margin:0 auto;">
-        <h1 class="headline">Happy Birthday, Lam! 💗</h1>
-        <p class="subtext">Here are letters from hội cy em mik. Click to read nha.</p>
+        <h1 class="headline">Welcome to Hà Nội, anh [MENTOR_NAME]! ✨</h1>
+        <p class="subtext">Tụi em có vài lá thư nhỏ gửi anh trước khi mình gặp nhau nè. Click để đọc nha 💛</p>
 
         <div class="letters-grid" id="letters-grid">
-          <article class="letter-card-xl" data-from="from Kylie" 
-            data-message="Dear Lammmm 🫶
-Hehe chúc em sinh nhật tuổi 20 thiệt nhiều tiếng cười, thiệt xinh đẹp và hạnh phúc nha. K nghĩ mình biết nhau được 3 năm rùi í, thời gian trôi qua nhanh thiệt (nma gặp off hơi ít nha, phải gặp thêm!!). Chúc Lya mãi vui vẻ, tích cực, giỏi giang và xinh xắn nhớ^^ Tuổi mới đạt được hết mục tiêu đề ra, ước gì được nấy nekkk. Welcome to hội U30 😭 Giờ mình được trêu thg kiên là con nít ranh r=))))
-Thank you for being very supportive, for being by my side, for being a nice sis to me <3 
-            Mãi iuu,
-            Kylie">
-            <div class="env-large"><div class="env-text"><div class="from">LETTER FROM</div><div class="name">Kylie</div></div></div>
+          <!-- Letter 1: Ly -->
+          <article class="letter-card-xl"
+            data-from="from Ly"
+            data-message="Dear anh [MENTOR_NAME],
+Hà Nội chào anh bằng chút nắng vàng và sự háo hức của tụi em hehe.
+Cảm ơn anh vì luôn support team siêu nhiệt tình. Tụi em học được nhiều thứ từ anh lắm, từ tư duy tới cách làm việc.
+Chúc chuyến ra HN này của anh thật vui, nhiều kỉ niệm đẹp, ăn ngon ngủ ngon, và gặp team mình thật đã nhaaa.
+See you soon!!
+Ly">
+            <div class="env-large">
+              <div class="env-text">
+                <div class="from">LETTER FROM</div>
+                <div class="name">Ly</div>
+              </div>
+            </div>
           </article>
 
-          <article class="letter-card-xl" data-from="from Michael" data-message="dear bà lya,
-I've been knowin' yo bum ahh since when we were still in highschool. Now im sophomore and ur u30 (lol), you have become such a slay queen, cutesie and demure. Just wanna say that I appreciate that ur still here with us and I enjoy your presence a lot around everyone. You really make the voicechat more joyful and trollier.
-Mừng ngày lya đc đẻ nhé
-Sincerely, mike">
-            <div class="env-large"><div class="env-text"><div class="from">LETTER FROM</div><div class="name">Michael</div></div></div>
+          <!-- Letter 2: Linh -->
+          <article class="letter-card-xl"
+            data-from="from Linh"
+            data-message="Dear anh [MENTOR_NAME],
+Finallyyyyy anh ra HN!! Team tụi em chờ ngày này lâu rồi đó.
+Cảm ơn anh vì những lần share kiến thức và góp ý rất tâm huyết. Nhờ anh mà tụi em tự tin hơn hẳn.
+Chúc anh có chuyến đi chill, thời tiết đẹp, và mình sẽ có một buổi meeting/đi chơi thật đáng nhớ.
+Hẹn gặp anh sớm nha!
+Linh">
+            <div class="env-large">
+              <div class="env-text">
+                <div class="from">LETTER FROM</div>
+                <div class="name">Linh</div>
+              </div>
+            </div>
           </article>
 
-          <article class="letter-card-xl" data-from="from Sweet" data-message="chúc chị tuổi 20 thật đẹp!!! tiếp cận đầu 2x is ‘FIRE’!! it’s like starting a new chapter of your lifeee! hope all the pages are filled with rainbow colors only 🤞🤞🤞">
-            <div class="env-large"><div class="env-text"><div class="from">LETTER FROM</div><div class="name">Sweet</div></div></div>
+          <!-- Letter 3: My -->
+          <article class="letter-card-xl"
+            data-from="from My"
+            data-message="Dear anh [MENTOR_NAME],
+Em viết vài dòng nhỏ để nói là tụi em rất quý anh và trân trọng những gì anh đã làm cho team.
+Chuyến HN này mong anh sẽ được nạp đầy năng lượng, thấy Hà Nội thật dễ thương, và có nhiều moment vui cùng tụi em.
+Cảm ơn anh vì always being a great mentor.
+Safe trip and see you soon!
+My">
+            <div class="env-large">
+              <div class="env-text">
+                <div class="from">LETTER FROM</div>
+                <div class="name">My</div>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -168,55 +200,15 @@ Sincerely, mike">
       <div class="letter-popup">
         <button class="modal-close" id="modal-close" aria-label="close">&times;</button>
         <p class="modal-from" id="modal-from"></p>
-        <h2 class="modal-title">A letter for Lam</h2>
+        <h2 class="modal-title">A letter for anh [MENTOR_NAME]</h2>
         <p class="modal-text" id="modal-text"></p>
       </div>
     </div>
 
-    <footer class="footer">from cy em mik 💗</footer>
+    <footer class="footer">from Ly, Linh & My 💛</footer>
   </main>
 
-  <!-- JS: step switch, modal, balloons -->
-  <script>
-    // Switch to Step 2 and hard-hide Step 1 so it can't block scroll
-    const step1 = document.getElementById('step-1');
-    const step2 = document.getElementById('step-2');
-    document.getElementById('btn-open').addEventListener('click', () => {
-      step1.classList.remove('active');
-      step1.style.display = 'none';     // IMPORTANT: remove from flow
-      step2.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Modal
-    const modal = document.getElementById('letter-modal');
-    const modalFrom = document.getElementById('modal-from');
-    const modalText = document.getElementById('modal-text');
-    document.getElementById('modal-close').addEventListener('click', () => modal.classList.remove('show'));
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
-    document.querySelectorAll('.letter-card-xl').forEach(card => {
-      card.addEventListener('click', () => {
-        modalFrom.textContent = card.dataset.from || '';
-        modalText.textContent  = card.dataset.message || '';
-        modal.classList.add('show');
-      });
-    });
-
-    // Balloons
-    document.addEventListener('DOMContentLoaded', () => createBalloons(15));
-    function createBalloons(count) {
-      const host = document.getElementById('balloon-layer');
-      const colors = ['#e94560', '#f0e68c', '#00d8d6', '#8e44ad', '#3498db'];
-      for (let i = 0; i < count; i++) {
-        const b = document.createElement('div');
-        b.className = 'balloon';
-        b.style.left = `${Math.random() * 100}vw`;
-        b.style.animationDuration = `${Math.random() * 6 + 8}s`;
-        b.style.animationDelay = `${Math.random() * 5}s`;
-        b.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        host.appendChild(b);
-      }
-    }
-  </script>
+  <!-- move all JS to script.js -->
+  <script src="script.js" defer></script>
 </body>
 </html>
