@@ -1,95 +1,67 @@
-// ========== DATA LỜI CHÚC ==========
-const lettersData = [
-  {
-    sender: "Kylie",
-    role: "bestie 1/4",
-    label: "from Kylie",
-    message: `Lam ơii 🫶
-Cảm ơn vì đã ở trong nhóm tụi mình nha.
-Chúc Lam tuổi mới chill hơn, ít tự gây áp lực cho mình hơn và làm được mấy goal bí mật á.
-Bọn t ở đây, lúc nào cần thì gõ nha 💗`
-  },
-  {
-    sender: "Michael",
-    role: "đại diện hội 4 đứa",
-    label: "from Michael",
-    message: `Happy birthday Lam!
-Tuổi mới mong mày cứ tự tin chọn cái mày muốn, tụi này sẽ support.
-Đi ăn đi chơi nhớ rủ nhaaa 🍣`
-  },
-  {
-    sender: "Sweet",
-    role: "đứa ngọt nhất team",
-    label: "from Sweet",
-    message: `Lam bé ơiii 💗
-Chúc mừng sinh nhật!!
-Mong c luôn thấy mình đáng yêu, đáng nhận love như tụi này nhìn c nha.
-Cứ vui nè, còn drama để tụi này xử 🤭`
-  },
-  {
-    sender: "Naan",
-    role: "năng lượng nữ chính",
-    label: "from Naan",
-    message: `Lammm 🥹
-Cảm ơn vì ở lại chơi chung với tụi t, nhóm thiếu c là tụi t hụt mood liền.
-Tuổi mới hiền với bản thân hơn xíu, ngủ sớm hơn xíu và gặp toàn người dễ thương nha 💕`
-  }
-];
+// ========== STEP SWITCH ==========
+const step1 = document.getElementById('step-1');
+const step2 = document.getElementById('step-2');
+const btnOpen = document.getElementById('btn-open');
 
-// ========== DOM ELEMENTS ==========
-const step1 = document.getElementById("step-1");
-const step2 = document.getElementById("step-2");
-const btnOpen = document.getElementById("btn-open");
-const lettersGrid = document.getElementById("letters-grid");
-const modal = document.getElementById("letter-modal");
-const modalFrom = document.getElementById("modal-from");
-const modalText = document.getElementById("modal-text");
-const modalClose = document.getElementById("modal-close");
-
-// ========== STEP CHANGE ==========
-btnOpen.addEventListener("click", () => {
-  step1.classList.remove("active");
-  step2.classList.add("active");
-});
-
-// ========== RENDER LETTER CARDS ==========
-lettersData.forEach((item) => {
-  const card = document.createElement("article");
-  card.className = "letter-card";
-  card.innerHTML = `
-    <div class="tiny-envelope"></div>
-    <p class="letter-meta">Letter</p>
-    <h3 class="letter-name">${item.sender}</h3>
-    <p class="letter-role">${item.role || ""}</p>
-  `;
-  card.addEventListener("click", () => openLetter(item));
-  lettersGrid.appendChild(card);
-});
-
-// ========== OPEN / CLOSE MODAL ==========
-function openLetter(letter) {
-  modalFrom.textContent = letter.label;
-  modalText.textContent = letter.message;
-  modal.classList.add("show");
+if (btnOpen && step1 && step2) {
+  btnOpen.addEventListener('click', () => {
+    // Ẩn step 1, hiện step 2 + kéo lên đầu trang
+    step1.classList.remove('active');
+    step1.style.display = 'none';
+    step2.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("show");
+// ========== MODAL ELEMENTS ==========
+const modal = document.getElementById('letter-modal');
+const modalFrom = document.getElementById('modal-from');
+const modalText = document.getElementById('modal-text');
+const modalClose = document.getElementById('modal-close');
+
+// ========== OPEN / CLOSE MODAL ==========
+function openLetter(fromLabel, message) {
+  if (!modal || !modalFrom || !modalText) return;
+  modalFrom.textContent = fromLabel || '';
+  modalText.textContent = message || '';
+  modal.classList.add('show');
+}
+
+// Gán event cho từng lá thư (từ Ly / Linh / My trong index.html)
+document.querySelectorAll('.letter-card-xl').forEach(card => {
+  card.addEventListener('click', () => {
+    const fromLabel = card.dataset.from || '';
+    const message = card.dataset.message || '';
+    openLetter(fromLabel, message);
+  });
 });
 
-modal.addEventListener("click", (e) => {
+// nút đóng modal
+if (modalClose && modal) {
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
   // click ra ngoài để tắt
-  if (e.target === modal) {
-    modal.classList.remove("show");
-  }
-  // ===== Balloons (Úc style) =====
-document.addEventListener("DOMContentLoaded", () => {
-  createBalloons(15); // tweak count if you want
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+}
+
+// ========== BALLOONS (warm Hà Nội palette) ==========
+document.addEventListener('DOMContentLoaded', () => {
+  createBalloons(15); // có thể tăng/giảm số lượng nếu muốn
 });
 
 function createBalloons(count) {
   const host = document.getElementById('balloon-layer');
-  const colors = ['#e94560', '#f0e68c', '#00d8d6', '#8e44ad', '#3498db'];
+  if (!host) return;
+
+  // màu vàng/cam ấm cho hợp theme
+  const colors = ['#FFC85C', '#FF9F45', '#FF7F50', '#FFCD94', '#FFD369'];
+
   for (let i = 0; i < count; i++) {
     const balloon = document.createElement('div');
     balloon.className = 'balloon';
@@ -100,5 +72,3 @@ function createBalloons(count) {
     host.appendChild(balloon);
   }
 }
-
-});
