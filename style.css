@@ -1,18 +1,18 @@
 /* ===== FONT ===== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-/* ===== ROOT ===== */
+/* ===== ROOT (warm Hanoi / butter theme) ===== */
 :root {
-  --bg-color: #ffe3e3;
-  --bg-color-2: #ffbecf;
-  --primary-color: #b42246;
-  --btn-color: #d4436a;
-  --text-color: #590018;
-  --card-bg: #fff9ee;
-  --card-border: rgba(255, 249, 238, 0.7);
+  --bg-color: #FFE6B3;          /* main background */
+  --bg-color-2: #FFD99A;        /* gradient buddy */
+  --primary-color: #8A4B16;     /* caramel brown */
+  --btn-color: #E8922E;         /* warm orange */
+  --text-color: #5A2C0B;        /* deep brown text */
+  --card-bg: #FFF6E5;           /* creamy card */
+  --card-border: rgba(255, 246, 229, 0.9);
   --radius-lg: 18px;
-  --shadow-sm: 0 6px 20px rgba(212, 78, 119, 0.2);
-  --shadow-md: 0 14px 40px rgba(198, 40, 83, 0.28);
+  --shadow-sm: 0 6px 20px rgba(154, 92, 26, 0.18);
+  --shadow-md: 0 14px 40px rgba(154, 92, 26, 0.28);
 }
 
 /* ===== RESET ===== */
@@ -44,7 +44,6 @@ body {
   display: none;
   position: absolute;
   inset: 0;
-  display: none;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
@@ -62,19 +61,20 @@ body {
 
 /* ===== STEP 1: CARD MINIMAL ===== */
 .intro-card {
-  background: #fff6ec;
+  background: #FFF3D6;
   border-radius: 20px;
   padding: 2.3rem 3rem 2.2rem;
   text-align: center;
-  box-shadow: 0 12px 35px rgba(186, 51, 86, 0.25);
+  box-shadow: 0 12px 35px rgba(138, 75, 22, 0.22);
   min-width: min(360px, 100%);
+  border: 1.5px solid rgba(255, 233, 179, 0.9);
 }
 
 .intro-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1.4rem;
-  color: #590018;
+  color: var(--text-color);
 }
 
 .btn-primary {
@@ -86,12 +86,12 @@ body {
   border-radius: 999px;
   cursor: pointer;
   transition: transform .15s ease, box-shadow .15s ease;
-  box-shadow: 0 10px 25px rgba(212, 67, 106, 0.46);
+  box-shadow: 0 10px 25px rgba(232, 146, 46, 0.45);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(212, 67, 106, 0.55);
+  box-shadow: 0 12px 28px rgba(232, 146, 46, 0.55);
 }
 
 /* ===== STEP 2: LETTERS LIST ===== */
@@ -110,24 +110,26 @@ body {
   font-size: clamp(2.1rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: .4rem;
+  color: var(--primary-color);
 }
 
 .subtext {
-  opacity: .8;
+  opacity: .85;
   max-width: 520px;
   margin: 0 auto 1.8rem;
 }
 
+/* grid basic (index.html override vẫn win nha) */
 .letters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2rem;
 }
 
-/* card thư */
+/* card thư (fallback nếu dùng letter-card) */
 .letter-card {
-  background: rgba(255, 246, 237, 0.4);
-  border: 1.8px solid rgba(255, 246, 237, 1);
+  background: rgba(255, 246, 229, 0.55);
+  border: 1.8px solid var(--card-border);
   border-radius: 20px;
   padding: 2.3rem 1.1rem 1.3rem;
   box-shadow: var(--shadow-sm);
@@ -144,11 +146,10 @@ body {
 }
 
 .letter-card::after {
-  /* vòng tròn sáng trang trí */
   content: "";
   width: 110px;
   height: 110px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.28);
   position: absolute;
   right: -35px;
   top: -50px;
@@ -159,7 +160,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: .08em;
-  opacity: .4;
+  opacity: .45;
   margin-bottom: .8rem;
 }
 
@@ -171,15 +172,15 @@ body {
 
 .letter-role {
   font-size: .87rem;
-  opacity: .6;
+  opacity: .65;
 }
 
 .tiny-envelope {
   width: 58px;
   height: 40px;
   margin: 0 auto 1.2rem;
-  background: #fff9ee;
-  border: 1.3px solid rgba(250, 214, 205, 0.9);
+  background: var(--card-bg);
+  border: 1.3px solid rgba(214, 170, 115, 0.9);
   border-radius: 12px 12px 10px 10px;
   position: relative;
 }
@@ -188,7 +189,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: #f5e7d3;
+  background: #F3D7A9;
   clip-path: polygon(0 0, 100% 0, 50% 55%);
   border-radius: 12px 12px 6px 6px;
 }
@@ -197,7 +198,7 @@ body {
 .letter-modal {
   position: fixed;
   inset: 0;
-  background: rgba(240, 115, 150, 0.32);
+  background: rgba(240, 186, 105, 0.32); /* warm overlay */
   backdrop-filter: blur(5px);
   display: none;
   align-items: center;
@@ -211,13 +212,14 @@ body {
 }
 
 .letter-popup {
-  background: #fff8f3;
+  background: #FFF8EA;
   border-radius: 22px;
   width: min(600px, 100%);
-  box-shadow: 0 16px 45px rgba(188, 41, 79, 0.35);
+  box-shadow: 0 16px 45px rgba(138, 75, 22, 0.35);
   padding: 1.5rem 1.5rem 1.1rem;
   position: relative;
   animation: pop .2s ease;
+  border: 1.6px solid rgba(255, 233, 179, 0.9);
 }
 
 @keyframes pop {
@@ -233,7 +235,7 @@ body {
   right: 14px;
   top: 8px;
   line-height: 1;
-  color: rgba(69, 29, 39, 0.36);
+  color: rgba(90, 44, 11, 0.4);
   cursor: pointer;
 }
 
@@ -241,7 +243,7 @@ body {
   font-size: .8rem;
   letter-spacing: .05em;
   text-transform: uppercase;
-  opacity: .5;
+  opacity: .55;
   margin-bottom: .3rem;
 }
 
@@ -249,6 +251,7 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: .7rem;
+  color: var(--primary-color);
 }
 
 .modal-text {
@@ -264,7 +267,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-size: .7rem;
-  opacity: .45;
+  opacity: .5;
+  color: var(--primary-color);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -284,30 +288,34 @@ body {
     overflow-y: auto;
   }
 }
+
 /* === Corner photos === */
 .corner-photos {
   position: fixed;
   inset: 0;
-  pointer-events: none;      /* so content remains clickable */
+  pointer-events: none;
   z-index: 4;
 }
+
 .corner-photos .corner {
-  pointer-events: auto;      /* allow hover on the images */
+  pointer-events: auto;
   position: absolute;
-  width: min(160px, 22vw);   /* auto-resize from 1200x1200 to fit */
+  width: min(160px, 22vw);
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(149, 33, 69, 0.25);
+  box-shadow: 0 12px 24px rgba(138, 75, 22, 0.22);
   transform-origin: center;
   transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-  filter: saturate(0.95);
+  filter: saturate(0.98);
 }
+
 .corner-photos .corner:hover {
   transform: scale(1.06) rotate(-1.5deg);
-  box-shadow: 0 18px 40px rgba(186, 51, 86, 0.35);
+  box-shadow: 0 18px 40px rgba(138, 75, 22, 0.32);
   filter: saturate(1.05);
 }
+
 /* positions */
 .corner.tl { top: 14px; left: 14px; }
 .corner.tr { top: 14px; right: 14px; }
@@ -324,12 +332,11 @@ body {
 #balloon-layer {
   position: fixed;
   inset: 0;
-  z-index: 1;               /* behind content */
+  z-index: 1;
   pointer-events: none;
   overflow: hidden;
 }
 
-/* balloons themselves (reuse Úc style vibes) */
 .balloon {
   position: absolute;
   width: 46px;
@@ -341,6 +348,7 @@ body {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
 .balloon::after {
   content: '';
   position: absolute;
@@ -354,4 +362,3 @@ body {
 @keyframes rise {
   to { transform: translateY(-115vh); }
 }
-
